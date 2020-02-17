@@ -14,8 +14,8 @@
             "type": "image/png"
         }
     ],
-    //"start_url": "/kopaczysko/test/Index.html",
-    //"display": "standalone",
+    "start_url": "Index.html",
+    "display": "fullscreen",
     "theme_color": "#B12A34",
     "background_color": "#B12A34"
 }
