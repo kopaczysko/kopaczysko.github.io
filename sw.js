@@ -16,7 +16,9 @@ self.addEventListener('fetch', (event) => {
                         });
 		}
 		return resp; 
-	} ) );
+	} ).catch(() =>  return new Response('<p>Brak internetów ;( Ale ServiceWorker sobie działa.</p>', {
+                          headers: { 'Content-Type': 'text/html' }
+                        }););
   // event.respondWith(
     // fetch(event.request).then((resp) =>
       // {
