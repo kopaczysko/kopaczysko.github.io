@@ -7,7 +7,7 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-	console.log('[Service Worker] Fetch v2');
+	console.log('[Service Worker] Fetch');
 	event.respondWith(fetch(event.request).then( (resp) => { 
 		if(!resp.ok)
 		{
@@ -16,9 +16,10 @@ self.addEventListener('fetch', (event) => {
                         });
 		}
 		return resp; 
-	} ).catch(() =>  return new Response('<p>Brak internetów ;( Ale ServiceWorker sobie działa.</p>', {
+	} ).catch(() =>  { new Response('<p>Brak internetów ;( Ale ServiceWorker sobie działa.</p>', {
                           headers: { 'Content-Type': 'text/html' }
-                        }););
+		}) }
+	);
   // event.respondWith(
     // fetch(event.request).then((resp) =>
       // {
