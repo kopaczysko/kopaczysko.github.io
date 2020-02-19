@@ -8,11 +8,10 @@ self.addEventListener('activate', function(event)) {
 
 self.addEventListener('fetch', (event) => {
   event.respondWith(
-    fetch(event.request).catch(
-      (resp) => { 
+    fetch(event.request) ||
         new Response('<p>Hello from your friendly neighbourhood service worker!</p>', {
           headers: { 'Content-Type': 'text/html' }
         });
-      }
+      
       ));
 });
