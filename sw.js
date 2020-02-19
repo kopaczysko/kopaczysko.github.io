@@ -8,7 +8,15 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
 	console.log('[Service Worker] Fetch');
-	event.respondWith(fetch(event.request).then( (resp) => { return resp; } ) );
+	event.respondWith(fetch(event.request).then( (resp) => { 
+		if(!resp.ok)
+		{
+			return new Response('<p>Brak internetów ;( Ale ServiceWorker sobie działa.</p>', {
+                          headers: { 'Content-Type': 'text/html' }
+                        });
+		}
+		return resp; 
+	} ) );
   // event.respondWith(
     // fetch(event.request).then((resp) =>
       // {
