@@ -8,7 +8,7 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   console.log('[Service Worker] Fetch v2');
-  event.respondWith(fetch(event.request)
+  event.respondWith(fetch(event.request, {cache: "no-store"})
     .then((resp) => {
       if (!resp.ok) {
         return new Response('<p>Brak internetów ;( Ale ServiceWorker sobie działa.</p>', {
