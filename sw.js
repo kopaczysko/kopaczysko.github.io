@@ -7,7 +7,7 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  console.log('[Service Worker] Fetch v2');
+  console.log('[Service Worker] Fetch v3');
   event.respondWith(fetch(event.request, {cache: "no-store"})
     .then((resp) => {
       if (!resp.ok) {
