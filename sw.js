@@ -6,7 +6,8 @@ self.addEventListener('activate', (event) => {
   console.log('[Service Worker] Activate');
 });
 
-// self.addEventListener('fetch', (event) => {
+self.addEventListener('fetch', (event) => {
+	event.respondWith(fetch(event.request).then( (resp) => { return resp; } ) );
   // event.respondWith(
     // fetch(event.request).then((resp) =>
       // {
@@ -20,4 +21,4 @@ self.addEventListener('activate', (event) => {
       // }  
       // )
 	// );
-// });
+});
